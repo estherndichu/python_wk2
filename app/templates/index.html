@@ -1,62 +1,52 @@
+{%extends 'base.html'%}
 {% import 'macros.html' as macro %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best news website </title>
-        {% endif %}
-    </head>
-    <body>
-        <div class="container-fluid">
-            <!--Top General News Sources  -->
-            <h3> Top General News Sources</h3>
-            <hr>
+
+{% block content %}
+<div class="container-fluid">
+    <!--Top General News Sources  -->
+    <h3> Top General News Sources</h3>
+    <hr>
+
+    {{ macro.displaySourceList(general)}}
+
+    <!--Top Science Sources  -->
+    <h3> Top Science News Sources</h3>
+    <hr>
+
+    {{ macro.displaySourceList(science)}}
+
+    <!--top Business News Sources -->
+    <h3> Top Business News Sources</h3>
+    <hr>
+
+    {{ macro.displaySourceList(business)}}
+
+    <!-- Top Technology News Sources -->
     
-            {{ macro.displaySourceList(general)}}
+    <h3> Top Technology News Sources</h3>
+    <hr>
+
+    {{ macro.displaySourceList(technology)}}
+
+    <!-- Top Health News Sources  -->
+    <h3> Top Health News Sources</h3>
+    <hr>
+
+    {{ macro.displaySourceList(health)}}
+
+    <!-- Top entertainment sources  -->
     
-            <!--Top Science Sources  -->
-            <h3> Top Science News Sources</h3>
-            <hr>
+    <h3> Top Entertainment News Sources</h3>
+    <hr>
+
+    {{ macro.displaySourceList(entertainment)}}
+
+    <!-- Top sports sources  -->
     
-            {{ macro.displaySourceList(science)}}
-    
-            <!--top Business News Sources -->
-            <h3> Top Business News Sources</h3>
-            <hr>
-    
-            {{ macro.displaySourceList(business)}}
-    
-            <!-- Top Technology News Sources -->
-            
-            <h3> Top Technology News Sources</h3>
-            <hr>
-    
-            {{ macro.displaySourceList(technology)}}
-    
-            <!-- Top Health News Sources  -->
-            <h3> Top Health News Sources</h3>
-            <hr>
-    
-            {{ macro.displaySourceList(health)}}
-    
-            <!-- Top entertainment sources  -->
-            
-            <h3> Top Entertainment News Sources</h3>
-            <hr>
-    
-            {{ macro.displaySourceList(entertainment)}}
-    
-            <!-- Top sports sources  -->
-            
-            <h3> Top Sports News Sources</h3>
-            <hr>
-    
-            {{ macro.displaySourceList(sports)}}
-        
-    </div>
-    
-    </body>
-</html>
+    <h3> Top Sports News Sources</h3>
+    <hr>
+
+    {{ macro.displaySourceList(sports)}}
+
+</div>
+{%endblock%}
