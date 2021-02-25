@@ -1,10 +1,10 @@
-from flask import render_template
-from app import app
-from .request import get_source,get_articles
-
+from flask import render_template,request,redirect,url_for
+from . import main
+from ..request import get_source,get_articles
+from ..models import Source,Articles
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -21,7 +21,7 @@ def index():
     return render_template('index.html',general = general, science = science, business = business,technology = technology, health = health, entertainment = entertainment, sports = sports)
 
 
-@app.route('/sources/<id>')
+@main.route('/sources/<id>')
 def articles(id):
 	'''
 	view articles page

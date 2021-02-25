@@ -1,17 +1,20 @@
-from app import app
 import urllib.request,json
-from .models import source,articles
+from .models import Source,Articles
 from datetime import datetime
 
-Source = source.Source
 
-Articles =articles.Articles
+api_key = None
 
-api_key = app.config['API_KEY']
+base_url = None
 
-base_url = app.config['SOURCE_BASE_URL']
+articles_url = None
 
-articles_url = app.config['ARTICLE_BASE_URL']
+def configure_request(app):
+	global api_key,base_url,articles_url
+	api_key = app.config['API_KEY']
+	base_url = app.config['SOURCE_BASE_URL']
+	articles_url = app.config['ARTICLE_BASE_URL']
+
 
 def get_source(category):
 	'''
