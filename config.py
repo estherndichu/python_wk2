@@ -10,6 +10,10 @@ class Config:
 
     API_KEY = os.environ.get('API_KEY')
 
+    @staticmethod
+    def init_app(app):
+        pass
+
 class ProdConfig(Config):
     '''
     Production  configuration child class
