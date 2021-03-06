@@ -76,6 +76,7 @@ def get_articles(id):
 def process_articles(articles_list):
   
 	articles_object = []
+	
 	for article_item in articles_list:
 		id = article_item.get('id')
 		author = article_item.get('author')
