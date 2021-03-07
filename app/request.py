@@ -55,23 +55,23 @@ def process_source(source_list):
 		source_results.append(source_object)
 
 
-	return source_results    
+	return source_results  
 
-def get_articles(id):
-  '''
+def get_articles(source):
+	'''
 	Function that processes the articles and returns a list of articles
 	'''
-		
-  get_articles_url = articles_url.format(id,api_key)
+	get_articles_url = articles_url.format(id,api_key)
 
-  with urllib.request.urlopen(get_articles_url) as url:
-			articles_results = json.loads(url.read())
+	with urllib.request.urlopen(get_articles_url) as url:
+		articles_results = json.loads(url.read())
 
-			articles_object = None
-			if articles_results['articles']:
-				articles_object = process_articles(articles_results['articles'])
+		articles_object =None
+		if articles_results['source']:
+			articles_list=process_articles(articles_results['source'])
 
-			return articles_object
+	return articles_list			  
+
 
 def process_articles(articles_list):
   
@@ -89,3 +89,5 @@ def process_articles(articles_list):
 		if image:
 			articles_result = Articles(id,author,title,description,url,image,date)
 			articles_object.append(articles_result)		
+
+	return articles_object		
